@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Matriks</title>
+    <link rel="stylesheet" href="visual.css" />
+    <link rel="stylesheet" href="penjelasan.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1 class="judul">Penjelasan Operasi Hitung</h1>
+    </header>
+
+    <div class="btn-back">
+      <a href="index.html" class="tombol" id="tombol-back">Kembali</a>
+    </div>
+
+    <main class="halaman">
+      <div class="tab-bar" role="tablist" aria-label="Pilih operasi">
+        <button type="button" class="tab" role="tab" id="tab-tambah"
+          aria-controls="panel-tambah" aria-selected="true">Penjumlahan</button>
+        <button type="button" class="tab" role="tab" id="tab-kurang"
+          aria-controls="panel-kurang" aria-selected="false" tabindex="-1">Pengurangan</button>
+        <button type="button" class="tab" role="tab" id="tab-kali"
+          aria-controls="panel-kali" aria-selected="false" tabindex="-1">Perkalian</button>
+      </div>
+
+      <!-- Penjumlahan -->
+      <section class="kotak kartu" id="panel-tambah" role="tabpanel" aria-labelledby="tab-tambah">
+        <p class="ide">
+          Setiap kotak dijumlahkan dengan kotak yang letaknya sama di matriks
+          lain.
+        </p>
+        <p class="syarat"><b>Syarat:</b> ordo A dan B harus sama.</p>
+        <p class="pemisalan">
+          Pemisalan: A berisi a, b, c, d dan B berisi e, f, g, h, dibaca dari
+          kiri ke kanan, atas ke bawah.
+        </p>
+
+        <hr class="garis" />
+        <h3 class="sub">Rumus tiap kotak hasil</h3>
+        <div class="rumus-grid">
+          <div class="sel">a + e</div>
+          <div class="sel">b + f</div>
+          <div class="sel">c + g</div>
+          <div class="sel">d + h</div>
+        </div>
+
+        <hr class="garis" />
+        <h3 class="sub">Coba sendiri</h3>
+        <p class="petunjuk">
+          Ubah angka di A dan B, lalu ketuk kotak hasil untuk melihat kotak yang
+          dipakai.
+        </p>
+        <div class="demo" data-op="tambah" data-a="1,2,3,4" data-b="5,6,7,8"></div>
+
+        <hr class="garis" />
+        <p class="ingat">
+          <b>Ingat:</b> urutan boleh ditukar, A + B selalu sama dengan B + A.
+        </p>
+      </section>
+
+      <!-- Pengurangan -->
+      <section class="kotak kartu" id="panel-kurang" role="tabpanel" aria-labelledby="tab-kurang" hidden>
+        <p class="ide">
+          Sama seperti penjumlahan, tetapi isi A dikurangi isi B pada posisi
+          yang sama.
+        </p>
+        <p class="syarat"><b>Syarat:</b> ordo A dan B harus sama.</p>
+        <p class="pemisalan">
+          Pemisalan: A berisi a, b, c, d dan B berisi e, f, g, h, dibaca dari
+          kiri ke kanan, atas ke bawah.
+        </p>
+
+        <hr class="garis" />
+        <h3 class="sub">Rumus tiap kotak hasil</h3>
+        <div class="rumus-grid">
+          <div class="sel">a − e</div>
+          <div class="sel">b − f</div>
+          <div class="sel">c − g</div>
+          <div class="sel">d − h</div>
+        </div>
+
+        <hr class="garis" />
+        <h3 class="sub">Coba sendiri</h3>
+        <p class="petunjuk">
+          Ubah angka di A dan B, lalu ketuk kotak hasil untuk melihat kotak yang
+          dipakai.
+        </p>
+        <div class="demo" data-op="kurang" data-a="1,2,3,4" data-b="5,6,7,8"></div>
+
+        <hr class="garis" />
+        <p class="ingat">
+          <b>Ingat:</b> urutan tidak boleh ditukar. Hati-hati dengan tanda,
+          misalnya 3 − (−2) = 5.
+        </p>
+      </section>
+
+      <!-- Perkalian -->
+      <section class="kotak kartu" id="panel-kali" role="tabpanel" aria-labelledby="tab-kali" hidden>
+        <p class="ide">
+          Setiap kotak hasil adalah pertemuan satu baris A dengan satu kolom B.
+          Contohnya kotak kiri atas: ambil baris 1 dari A dan kolom 1 dari B,
+          kalikan pasangan berurutan, lalu jumlahkan.
+        </p>
+        <p class="syarat">
+          <b>Syarat:</b> jumlah kolom A sama dengan jumlah baris B.
+        </p>
+        <p class="pemisalan">
+          Pemisalan: A berisi a, b, c, d dan B berisi e, f, g, h, dibaca dari
+          kiri ke kanan, atas ke bawah.
+        </p>
+
+        <hr class="garis" />
+        <h3 class="sub">Rumus tiap kotak hasil</h3>
+        <div class="rumus-grid">
+          <div class="sel">(a × e) + (b × g)</div>
+          <div class="sel">(a × f) + (b × h)</div>
+          <div class="sel">(c × e) + (d × g)</div>
+          <div class="sel">(c × f) + (d × h)</div>
+        </div>
+
+        <hr class="garis" />
+        <h3 class="sub">Coba sendiri</h3>
+        <p class="petunjuk">
+          Ubah angka di A dan B, lalu ketuk kotak hasil. Satu baris A dan satu
+          kolom B akan menyala.
+        </p>
+        <div class="demo" data-op="kali" data-a="1,2,3,4" data-b="5,6,7,8"></div>
+
+        <hr class="garis" />
+        <p class="ingat">
+          <b>Ingat:</b> urutan sangat berpengaruh, A × B biasanya tidak sama
+          dengan B × A.
+        </p>
+      </section>
+
+      <section class="kotak kartu latihan">
+        <h2 class="judul-kotak">Latihan</h2>
+        <p class="petunjuk">Hitung sendiri, lalu tekan Periksa.</p>
+        <div id="latihan"></div>
+      </section>
+    </main>
+
+    <script src="belajar.js"></script>
+  </body>
+</html>

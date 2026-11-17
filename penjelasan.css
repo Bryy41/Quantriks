@@ -1,0 +1,268 @@
+/* penjelasan.css — style khusus penjelasan.html, dimuat setelah visual.css */
+
+.btn-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+/* ===== Susunan halaman: satu kolom, lebar sama seperti index ===== */
+.halaman {
+  width: min(95%, 620px);
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== Tab ===== */
+.tab-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.tab {
+  padding: 12px 8px;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: 1px solid var(--white);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tab:hover {
+  background: rgba(217, 225, 241, 0.12);
+}
+
+.tab[aria-selected="true"] {
+  color: var(--bg);
+  background: linear-gradient(to top, var(--blue3), var(--white));
+}
+
+.tab:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+/* ===== Kartu (gaya sama seperti index) ===== */
+.kotak {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  padding: 20px;
+  color: white;
+  background: linear-gradient(to bottom, var(--blue2), var(--bg));
+  border: 1px solid var(--white);
+  border-radius: 10px;
+}
+
+.kartu {
+  text-align: left;
+}
+
+.kartu[hidden] {
+  display: none;
+}
+
+.kartu p {
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+.kartu b {
+  color: var(--blue4);
+}
+
+.judul-kotak {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.sub {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--blue4);
+}
+
+.garis {
+  margin: 18px 0;
+  border: 0;
+  border-top: 1px solid rgba(217, 225, 241, 0.25);
+}
+
+.syarat,
+.pemisalan,
+.ingat {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.pemisalan,
+.petunjuk {
+  color: var(--blue3);
+}
+
+.petunjuk {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+/* ===== Rumus berbentuk matriks 2x2 ===== */
+.rumus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.rumus-grid .sel {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background: rgba(217, 225, 241, 0.08);
+  border: 1px solid rgba(217, 225, 241, 0.3);
+  border-radius: 8px;
+}
+
+/* ===== Matriks mini ===== */
+.contoh-matriks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.item-matriks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 44px);
+  grid-auto-rows: 40px;
+  gap: 4px;
+}
+
+.mini-grid .sel {
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.mini-grid input.sel {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-family: var(--font-family);
+  font-weight: bold;
+}
+
+.operator {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* ===== Demo interaktif ===== */
+.demo .sel {
+  opacity: 0.45;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+
+.demo .warna-c .sel,
+.demo .sel.nyala {
+  opacity: 1;
+}
+
+.demo .sel.nyala,
+.demo .sel.pilih {
+  box-shadow: 0 0 0 2px var(--blue4);
+}
+
+.demo button.sel {
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.sel:focus-visible,
+.mini-grid input.sel:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+.rumus {
+  min-height: 3.4em;
+  margin-top: 14px;
+  padding: 10px 12px;
+  text-align: center;
+  border: 1px solid var(--blue3);
+  border-radius: 8px;
+  background: rgba(217, 225, 241, 0.08);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.aksi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.langkah-btn {
+  padding: 10px 16px;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* ===== Latihan ===== */
+.soal-judul {
+  margin-top: 10px;
+  color: var(--blue4);
+  font-weight: bold;
+}
+
+.latihan .rumus {
+  text-align: left;
+}
+
+.mini-grid .sel.benar {
+  background: var(--hijau);
+}
+
+.mini-grid .sel.salah {
+  background: #ff8a8a;
+}
+
+@media (max-width: 480px) {
+  .kotak {
+    padding: 16px;
+  }
+
+  .tab {
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo .sel,
+  .tab {
+    transition: none;
+  }
+}
