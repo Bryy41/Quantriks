@@ -6,6 +6,7 @@
   --blue4: #6aaaff;
   --white: #d9e1f1;
   --hijau: #4fd1a0;
+  --oranye: #ffb454;
 }
 
 * {
@@ -72,8 +73,8 @@ a {
 
 .tombol:hover {
   transform: scale(1.1);
-   cursor: pointer;
-   letter-spacing: 0.03em;
+  cursor: pointer;
+  letter-spacing: 0.03em;
 }
 
 .tombol:focus-visible {

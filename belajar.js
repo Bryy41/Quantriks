@@ -4,7 +4,11 @@
 
 var NAMA_KOTAK = ["kiri-atas", "kanan-atas", "kiri-bawah", "kanan-bawah"];
 var LAMBANG = { tambah: "+", kurang: "−", kali: "×" };
-var NAMA_OP = { tambah: "Penjumlahan", kurang: "Pengurangan", kali: "Perkalian" };
+var NAMA_OP = {
+  tambah: "Penjumlahan",
+  kurang: "Pengurangan",
+  kali: "Perkalian",
+};
 
 // 1) Hitung isi matriks hasil
 function hitung(op, A, B) {
@@ -43,8 +47,15 @@ function tulisRumus(op, A, B, C, i) {
   var isi;
   if (op === "kali") {
     isi =
-      kurung(A[s.a[0]]) + " × " + kurung(B[s.b[0]]) + " + " +
-      kurung(A[s.a[1]]) + " × " + kurung(B[s.b[1]]) + " = " + C[i];
+      kurung(A[s.a[0]]) +
+      " × " +
+      kurung(B[s.b[0]]) +
+      " + " +
+      kurung(A[s.a[1]]) +
+      " × " +
+      kurung(B[s.b[1]]) +
+      " = " +
+      C[i];
   } else {
     isi = kurung(A[i]) + " " + LAMBANG[op] + " " + kurung(B[i]) + " = " + C[i];
   }
@@ -64,8 +75,15 @@ function buatMatriks(kode, label, angka, jenis) {
       var data = ' data-m="' + kode + '" data-i="' + i + '"';
       if (jenis === "isian") {
         return (
-          '<input class="sel" type="text" inputmode="numeric" maxlength="2" value="' + n + '"' +
-          data + ' aria-label="Matriks ' + label + " kotak " + NAMA_KOTAK[i] + '">'
+          '<input class="sel" type="text" inputmode="numeric" maxlength="2" value="' +
+          n +
+          '"' +
+          data +
+          ' aria-label="Matriks ' +
+          label +
+          " kotak " +
+          NAMA_KOTAK[i] +
+          '">'
         );
       }
       var tag = jenis === "tombol" ? 'button type="button"' : "div";
@@ -75,9 +93,17 @@ function buatMatriks(kode, label, angka, jenis) {
     .join("");
 
   return (
-    '<div class="item-matriks">' +
-      '<div class="mini-grid warna-' + kode + '">' + isi + "</div>" +
-      "<span>" + label + "</span>" +
+    '<div class="item-matriks item-' +
+    kode +
+    '">' +
+    '<div class="mini-grid warna-' +
+    kode +
+    '">' +
+    isi +
+    "</div>" +
+    "<span>" +
+    label +
+    "</span>" +
     "</div>"
   );
 }
@@ -91,16 +117,18 @@ function siapkanDemo(el) {
 
   el.innerHTML =
     '<div class="contoh-matriks">' +
-      buatMatriks("a", "A", A, "isian") +
-      '<span class="operator">' + LAMBANG[op] + "</span>" +
-      buatMatriks("b", "B", B, "isian") +
-      '<span class="operator">=</span>' +
-      buatMatriks("c", "Hasil", C, "tombol") +
+    buatMatriks("a", "A", A, "isian") +
+    '<span class="operator">' +
+    LAMBANG[op] +
+    "</span>" +
+    buatMatriks("b", "B", B, "isian") +
+    '<span class="operator">=</span>' +
+    buatMatriks("c", "Hasil", C, "tombol") +
     "</div>" +
     '<p class="rumus" aria-live="polite"></p>' +
     '<div class="aksi">' +
-      '<button type="button" class="tombol langkah-btn" data-aksi="lanjut">Kotak berikutnya ▶</button>' +
-      '<button type="button" class="tombol langkah-btn" data-aksi="acak">Acak angka</button>' +
+    '<button type="button" class="tombol langkah-btn" data-aksi="lanjut">Kotak berikutnya ▶</button>' +
+    '<button type="button" class="tombol langkah-btn" data-aksi="acak">Acak angka</button>' +
     "</div>";
 
   var kotakA = el.querySelectorAll('[data-m="a"]');
@@ -123,10 +151,14 @@ function siapkanDemo(el) {
     });
     var s = sumber(op, i);
     s.a.forEach(function (n) {
-      el.querySelector('[data-m="a"][data-i="' + n + '"]').classList.add("nyala");
+      el.querySelector('[data-m="a"][data-i="' + n + '"]').classList.add(
+        "nyala",
+      );
     });
     s.b.forEach(function (n) {
-      el.querySelector('[data-m="b"][data-i="' + n + '"]').classList.add("nyala");
+      el.querySelector('[data-m="b"][data-i="' + n + '"]').classList.add(
+        "nyala",
+      );
     });
     kotakHasil[i].classList.add("pilih");
     teksRumus.textContent = tulisRumus(op, A, B, C, i);
@@ -160,9 +192,12 @@ function siapkanDemo(el) {
     });
   });
 
-  el.querySelector('[data-aksi="lanjut"]').addEventListener("click", function () {
-    nyalakan((aktif + 1) % 4);
-  });
+  el.querySelector('[data-aksi="lanjut"]').addEventListener(
+    "click",
+    function () {
+      nyalakan((aktif + 1) % 4);
+    },
+  );
 
   el.querySelector('[data-aksi="acak"]').addEventListener("click", function () {
     el.querySelectorAll("input[data-m]").forEach(function (kotak) {
@@ -208,7 +243,8 @@ function siapkanLatihan(wadah) {
       umpan.textContent = "Benar semua! Tekan Soal baru untuk lanjut.";
     } else {
       umpan.innerHTML =
-        benar + " dari 4 kotak benar. Cara mengerjakan yang salah:<br>" +
+        benar +
+        " dari 4 kotak benar. Cara mengerjakan yang salah:<br>" +
         perbaikan.join("<br>");
     }
   }
@@ -222,24 +258,32 @@ function siapkanLatihan(wadah) {
     var kotakJawab = "";
     for (var i = 0; i < 4; i++) {
       kotakJawab +=
-        '<input class="sel jawab" type="text" inputmode="numeric" maxlength="4" data-i="' + i +
-        '" aria-label="Jawaban kotak ' + NAMA_KOTAK[i] + '">';
+        '<input class="sel jawab" type="text" inputmode="numeric" maxlength="4" data-i="' +
+        i +
+        '" aria-label="Jawaban kotak ' +
+        NAMA_KOTAK[i] +
+        '">';
     }
 
     wadah.innerHTML =
-      '<p class="soal-judul">' + NAMA_OP[op] + "</p>" +
+      '<p class="soal-judul">' +
+      NAMA_OP[op] +
+      "</p>" +
       '<div class="contoh-matriks">' +
-        buatMatriks("a", "A", A, "teks") +
-        '<span class="operator">' + LAMBANG[op] + "</span>" +
-        buatMatriks("b", "B", B, "teks") +
-        '<span class="operator">=</span>' +
-        '<div class="item-matriks"><div class="mini-grid warna-c">' + kotakJawab +
-        "</div><span>Jawabanmu</span></div>" +
+      buatMatriks("a", "A", A, "teks") +
+      '<span class="operator">' +
+      LAMBANG[op] +
+      "</span>" +
+      buatMatriks("b", "B", B, "teks") +
+      '<span class="operator">=</span>' +
+      '<div class="item-matriks item-c"><div class="mini-grid warna-c">' +
+      kotakJawab +
+      "</div><span>Jawabanmu</span></div>" +
       "</div>" +
       '<p class="rumus" aria-live="polite">Isi keempat kotak, lalu tekan Periksa.</p>' +
       '<div class="aksi">' +
-        '<button type="button" class="tombol langkah-btn" data-aksi="periksa">Periksa</button>' +
-        '<button type="button" class="tombol langkah-btn" data-aksi="baru">Soal baru</button>' +
+      '<button type="button" class="tombol langkah-btn" data-aksi="periksa">Periksa</button>' +
+      '<button type="button" class="tombol langkah-btn" data-aksi="baru">Soal baru</button>' +
       "</div>";
 
     wadah.querySelectorAll(".jawab").forEach(function (kotak) {
@@ -252,8 +296,12 @@ function siapkanLatihan(wadah) {
         if (e.key === "Enter") periksa();
       });
     });
-    wadah.querySelector('[data-aksi="periksa"]').addEventListener("click", periksa);
-    wadah.querySelector('[data-aksi="baru"]').addEventListener("click", soalBaru);
+    wadah
+      .querySelector('[data-aksi="periksa"]')
+      .addEventListener("click", periksa);
+    wadah
+      .querySelector('[data-aksi="baru"]')
+      .addEventListener("click", soalBaru);
   }
 
   soalBaru();

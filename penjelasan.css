@@ -97,8 +97,7 @@
 }
 
 .syarat,
-.pemisalan,
-.ingat {
+.pemisalan {
   margin-top: 10px;
   font-size: 0.9rem;
 }
@@ -177,19 +176,41 @@
 }
 
 /* ===== Demo interaktif ===== */
-.demo .sel {
-  opacity: 0.45;
-  transition: opacity 0.15s, box-shadow 0.15s;
+
+/* Kode warna: biru = A, oranye = B, hijau = hasil */
+.item-a span {
+  color: var(--blue4);
+}
+.item-b span {
+  color: var(--oranye);
+}
+.item-c span {
+  color: var(--hijau);
 }
 
-.demo .warna-c .sel,
-.demo .sel.nyala {
+.demo .sel {
+  opacity: 0.4;
+  transition:
+    background-color 0.15s,
+    opacity 0.15s;
+}
+
+.demo .warna-c .sel {
   opacity: 1;
 }
 
-.demo .sel.nyala,
-.demo .sel.pilih {
-  box-shadow: 0 0 0 2px var(--blue4);
+.demo .warna-a .sel.nyala {
+  background: var(--blue4);
+  opacity: 1;
+}
+
+.demo .warna-b .sel.nyala {
+  background: var(--oranye);
+  opacity: 1;
+}
+
+.demo .warna-c .sel.pilih {
+  background: var(--hijau);
 }
 
 .demo button.sel {
@@ -209,60 +230,55 @@
   margin-top: 14px;
   padding: 10px 12px;
   text-align: center;
-  border: 1px solid var(--blue3);
+  border: 1px solid var(--hijau);
   border-radius: 8px;
-  background: rgba(217, 225, 241, 0.08);
+  background: rgba(79, 209, 160, 0.16);
   font-size: 0.9rem;
   font-weight: 600;
 }
 
 .aksi {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .langkah-btn {
-  padding: 10px 16px;
+  padding: 10px 12px;
   font-family: var(--font-family);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.langkah-btn:hover {
+  transform: scale(1.1);
+  letter-spacing: normal;
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 10px 20px 0;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
-/* ===== Latihan ===== */
-.soal-judul {
-  margin-top: 10px;
+.l-a {
   color: var(--blue4);
-  font-weight: bold;
 }
-
-.latihan .rumus {
-  text-align: left;
+.l-b {
+  color: var(--oranye);
 }
-
-.mini-grid .sel.benar {
-  background: var(--hijau);
-}
-
-.mini-grid .sel.salah {
-  background: #ff8a8a;
+.l-c {
+  color: var(--hijau);
 }
 
 @media (max-width: 480px) {
-  .kotak {
-    padding: 16px;
-  }
-
-  .tab {
-    font-size: 0.78rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .demo .sel,
-  .tab {
-    transition: none;
+  .aksi {
+    grid-template-columns: 1fr;
   }
 }
