@@ -238,18 +238,19 @@
 }
 
 .aksi {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .langkah-btn {
-  padding: 10px 12px;
+  padding: 7px 14px;
   font-family: var(--font-family);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .langkah-btn:hover {
